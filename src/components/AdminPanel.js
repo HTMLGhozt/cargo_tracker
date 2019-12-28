@@ -3,14 +3,22 @@ import React, { Component } from "react";
 import Firebase from "firebase";
 import firebaseConfig from "./config";
 
+// TODO: add signOut button and code
+
+var firebase = Firebase.initializeApp(firebaseConfig);
+
 class AdminPanel extends Component {
   constructor(props) {
     super(props);
-    Firebase.initializeApp(firebaseConfig);
-
+    firebase;
+    // this.logout = this.logout.bind(this);
     this.state = {
       clients: []
     };
+  }
+
+  logout() {
+    firebase.auth().signOut();
   }
 
   // CRUD start

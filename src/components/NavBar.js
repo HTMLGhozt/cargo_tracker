@@ -5,12 +5,15 @@ const NavBar = () => {
   return (
     <Route>
       <div>
-        <nav class="navbar navbar-light bg-light" style={{ margin: "10px" }}>
+        <nav
+          className="navbar navbar-light bg-light"
+          style={{ margin: "10px" }}
+        >
           <h1>io-cargo</h1>
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
+          <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li className="nav-item">
               <a
-                class="nav-link active"
+                className="nav-link active"
                 id="pills-home-tab"
                 data-toggle="pill"
                 href="#pills-home"
@@ -21,9 +24,9 @@ const NavBar = () => {
                 <NavLink to="/">Home</NavLink>
               </a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <a
-                class="nav-link"
+                className="nav-link"
                 id="pills-profile-tab"
                 data-toggle="pill"
                 href="#pills-profile"
@@ -34,9 +37,9 @@ const NavBar = () => {
                 <NavLink to="/login">Profile</NavLink>
               </a>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <a
-                class="nav-link"
+                className="nav-link"
                 id="pills-contact-tab"
                 data-toggle="pill"
                 href="#pills-contact"
