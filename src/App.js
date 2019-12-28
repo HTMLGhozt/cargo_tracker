@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 
 import { Switch, Route } from "react-router-dom";
 
+// FIXME: routing not working
 const App = () => {
   return (
     <div className="container">

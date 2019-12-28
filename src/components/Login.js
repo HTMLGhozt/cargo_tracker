@@ -4,6 +4,7 @@ import firebaseConfig from "./config";
 
 // TODO: validate/register through Firebase
 // TODO: onSubmit handler --> AdminPanel.js
+// FIXME: email and password inputs not working
 
 var firebase = Firebase.initializeApp(firebaseConfig);
 var user = firebase.auth().currentUser;
