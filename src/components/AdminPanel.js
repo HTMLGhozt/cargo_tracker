@@ -9,7 +9,7 @@ class AdminPanel extends Component {
     Firebase.initializeApp(firebaseConfig);
 
     this.state = {
-      developers: []
+      clients: []
     };
   }
 
@@ -29,44 +29,44 @@ class AdminPanel extends Component {
     console.log("DATA RETRIEVED");
   };
 
-  updateData = developer => {
-    this.refs.uid.value = developer.uid;
-    this.refs.name.value = developer.name;
-    this.refs.role.value = developer.role;
+  updateData = client => {
+    this.refs.uid.value = client.uid;
+    this.refs.name.value = client.name;
+    this.refs.trackNum.value = client.trackNum;
   };
 
-  removeData = developer => {
-    const { developers } = this.state;
-    const newState = developers.filter(data => {
-      return data.uid !== developer.uid;
+  removeData = client => {
+    const { clients } = this.state;
+    const newState = clients.filter(data => {
+      return data.uid !== client.uid;
     });
-    this.setState({ developers: newState });
+    this.setState({ clients: newState });
   };
   // CRUD end
 
   handleSubmit = event => {
     event.preventDefault();
     let name = this.refs.name.value;
-    let role = this.refs.role.value;
+    let trackNum = this.refs.trackNum.value;
     let uid = this.refs.uid.value;
 
-    if (uid && name && role) {
-      const { developers } = this.state;
-      const devIndex = developers.findIndex(data => {
+    if (uid && name && trackNum) {
+      const { clients } = this.state;
+      const clientIndex = clients.findIndex(data => {
         return data.uid === uid;
       });
-      developers[devIndex].name = name;
-      developers[devIndex].role = role;
-      this.setState({ developers });
-    } else if (name && role) {
+      clients[clientIndex].name = name;
+      clients[clientIndex].trackNum = trackNum;
+      this.setState({ clients });
+    } else if (name && trackNum) {
       const uid = new Date().getTime().toString();
-      const { developers } = this.state;
-      developers.push({ uid, name, role });
-      this.setState({ developers });
+      const { clients } = this.state;
+      clients.push({ uid, name, trackNum });
+      this.setState({ clients });
     }
 
     this.refs.name.value = "";
-    this.refs.role.value = "";
+    this.refs.trackNum.value = "";
     this.refs.uid.value = "";
   };
 
@@ -83,7 +83,7 @@ class AdminPanel extends Component {
   }
 
   render() {
-    const { developers } = this.state;
+    const { clients } = this.state;
     return (
       <div className="container">
         <div className="row">
@@ -93,23 +93,23 @@ class AdminPanel extends Component {
         </div>
         <div className="row">
           <div className="col-xl-12">
-            {developers.map(developer => (
+            {clients.map(client => (
               <div
-                key={developer.uid}
+                key={client.uid}
                 className="card float-left"
                 style={{ width: "18rem", marginRight: "1rem" }}
               >
                 <div className="card-body">
-                  <h5 className="card-title">{developer.name}</h5>
-                  <p className="card-text">{developer.role}</p>
+                  <h5 className="card-title">{client.name}</h5>
+                  <p className="card-text">{client.trackNum}</p>
                   <button
-                    onClick={() => this.removeData(developer)}
+                    onClick={() => this.removeData(client)}
                     className="btn btn-link"
                   >
                     Delete
                   </button>
                   <button
-                    onClick={() => this.updateData(developer)}
+                    onClick={() => this.updateData(client)}
                     className="btn btn-link"
                   >
                     Edit
@@ -139,7 +139,7 @@ class AdminPanel extends Component {
                   <label>Tracking Number</label>
                   <input
                     type="text"
-                    ref="role"
+                    ref="trackNum"
                     className="form-control"
                     placeholder="UM0983726245"
                   />

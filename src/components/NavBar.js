@@ -1,9 +1,9 @@
 import React from "react";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <Router>
+    <Route>
       <div>
         <nav class="navbar navbar-light bg-light" style={{ margin: "10px" }}>
           <h1>io-cargo</h1>
@@ -18,7 +18,7 @@ const NavBar = () => {
                 aria-controls="pills-home"
                 aria-selected="true"
               >
-                <Link to="/">Home</Link>
+                <NavLink to="/">Home</NavLink>
               </a>
             </li>
             <li class="nav-item">
@@ -31,7 +31,7 @@ const NavBar = () => {
                 aria-controls="pills-profile"
                 aria-selected="false"
               >
-                <Link to="/login">Profile</Link>
+                <NavLink to="/login">Profile</NavLink>
               </a>
             </li>
             <li class="nav-item">
@@ -44,13 +44,13 @@ const NavBar = () => {
                 aria-controls="pills-contact"
                 aria-selected="false"
               >
-                <Link to="/contact">Contact</Link>
+                <NavLink to="/contact">Contact</NavLink>
               </a>
             </li>
           </ul>
         </nav>
       </div>
-    </Router>
+    </Route>
   );
 };
 

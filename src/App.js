@@ -13,7 +13,7 @@ const App = () => {
       <NavBar />
 
       <Switch>
-        <Route path="/" component={Tracker} />
+        <Route path="/" exact component={Tracker} />
         <Route path="/login" exact component={Login} />
         <Route path="/contact" exact component={Contact} />
       </Switch>

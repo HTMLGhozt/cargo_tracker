@@ -4,8 +4,12 @@ import React from "react";
 // TODO: onSubmit handler --> AdminPanel.js
 
 const Login = () => {
+  handleSubmit = event => {
+    event.preventDefault();
+  };
+
   return (
-    <form>
+    <form onSubmit={this.handleSubmit}>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input
